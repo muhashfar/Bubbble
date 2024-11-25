@@ -1,0 +1,40 @@
+title: Dribbble Clone
+description: A Dribbble clone built with Jekyll
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://dribblev1.netlify.app" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Collections
+collections:
+  posts:
+    output: true
+  authors:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+

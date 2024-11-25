@@ -1,0 +1,29 @@
+---
+layout: default
+image: assets/images/banner.png
+---
+<div class="header-title">
+  <span class="header-text">Discover the world's top designers</span>
+</div>
+<div style="display: flex; justify-content: center; text-align: center;">
+  <span>Explore work from the most talented and accomplished designers ready to take on your next project</span>
+</div>
+
+<!-- Search -->
+{% include search-input.html %}
+
+<!-- Post Category-->
+{% include post-category.html %}
+
+<!-- Post Card -->
+<div class="post-list">  
+  {% for post in site.posts %}
+    {% include postcard.html %}
+  {% endfor %}
+</div>
+
+<!-- Popup Window -->
+{% include popup.html %}
+
+<!-- Fullscreen Image Container -->
+{% include fullscreen-image.html %}

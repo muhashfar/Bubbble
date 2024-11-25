@@ -1,0 +1,35 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: "assets/images/uploads" # Folder where user uploaded images should go
+public_folder: "/assets/images/uploads" # Folder where uploaded images should be accessed in the browser
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "relation", collection: "authors", search_fields: ["name"], value_field: "name", display_fields: ["name"] }
+      - { label: "Categories", name: "categories", widget: "list" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Gallery", name: "gallery", widget: "list", field: { label: "Image", name: "image", widget: "image" } }
+      - { label: "File", name: "file", widget: "file", media_folder: "assets/files", public_folder: "/assets/files" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "authors"
+    label: "Authors"
+    folder: "_authors"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Profile Image", name: "profile", widget: "image" }
+      - { label: "Designation", name: "designation", widget: "string" }
+      - { label: "Verified", name: "verified", widget: "boolean" }
